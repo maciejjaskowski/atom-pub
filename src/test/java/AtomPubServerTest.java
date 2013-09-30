@@ -43,8 +43,8 @@ public class AtomPubServerTest {
     }
 
     @Test
-    public void shouldPostANewEmployee() {
-
+    public void shouldCreateANewEmployee() {
+        //given
         Entry entry = factory.newEntry();
         entry.setId("tag:example.org,2011:foo");
         entry.setTitle("This is the title");
@@ -52,9 +52,10 @@ public class AtomPubServerTest {
         entry.addAuthor("Chad");
         entry.setContent("Hello World");
 
+        //when
         ClientResponse resp = post(entry);
 
-
+        //then
         assertThat(employees, hasItem(new Employee("Hello World", 1)));
     }
 
